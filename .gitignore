@@ -9,5 +9,12 @@
 !.claude/**
 !スキル活用一覧.xlsx
 
+# gig-work-kitの自律リサーチ蓄積（クラウドルーティンが読み書きする）。
+# knowledge/配下の他のファイル（user-profile.md, lessons-learned.md, inbox/等）は
+# ユーザー固有情報のため引き続き除外する。
+!knowledge/
+knowledge/*
+!knowledge/gig-work-research.md
+
 # セッション固有のランタイム状態（コミット対象外）
 .claude/scheduled_tasks.lock
