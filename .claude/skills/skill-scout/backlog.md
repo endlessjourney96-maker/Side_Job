@@ -122,6 +122,18 @@
 - 5回目（同日、ローカル`/loop`）：ココナラのタイトル最適化式（検索キーワード＋ベネフィット）と、クラウドワークスのリピート化条件（納期厳守・早め連絡・返信12〜24時間以内）を`gig-work-kit`⑦に反映済み
 - 6回目（2026-09-13、ローカル`/loop`）：クラウドワークスの単価交渉術（時給700〜900円で信頼構築を優先→実績後に交渉）と、AI検出の技術的仕組み（Perplexity/Burstiness）を`gig-work-kit`④⑥に反映済み
 
+## 2026-09-13（NotebookLM knowledge inbox：外部Claude Codeノウハウ資料の取り込み）
+
+ユーザーが複数の外部資料（有料勉強会特典・会員限定コース等）のClaude Code活用ノウハウを、NotebookLM経由で理解した上でスキル化したいと相談。ただし**「内部的知見を貯めるだけにとどめてください」という方針決定（2026-09-13）**により、この一連の取り込みは`.claude/skills/`（公開リポジトリ）へのドラフト化・categories.md/xlsx反映は行わず、`knowledge/inbox/notebooklm/`配下（非公開）への要約蓄積のみに留める。
+
+- 詳細は `knowledge/inbox/notebooklm/2026-09-13.md`（Claude in Chrome拡張の活用）、`2026-09-13_2.md`（Claude Code×Codex連携でのスライド自動生成）を参照
+- 既存ドラフト`skill-scout/drafts/chrome-browser-control`は上記方針決定に伴い削除済み（内容は上記inboxファイルに残る）
+- 今後同種の資料が来ても、同じ方針（`knowledge/inbox/notebooklm/`への要約保存のみ）で処理する。ユーザーが明示的に「スキル化して」と言った場合のみ、この節を参照してdraft化を検討する
+
 ## 2026-09-13（ChatGPT・A-3班の役割分担確定）
 
 ChatGPT提案「案件入口駅＝ChatGPT（探索・一次評価）／制作・納品駅＝A-3班＝gig-work-kit（技術評価・制作・学習）、実績を相互フィードバック」で合意。`gig-work-kit`のSKILL.mdに正式反映済み。ChatGPT→A-3の経路は既存の`knowledge/inbox/chatgpt/`、A-3→ChatGPTの新しい経路として`knowledge/a3-execution-learnings.md`を新設（Public repoで追跡、まだ実案件の記載なし）。
+
+## 2026-09-13（gig-work-research 7回目、ローカル`/loop`）
+
+ココナラの高評価の集め方（納品時に一言評価依頼を添える、初期は匿名評価も許容）と、クラウドワークスの継続契約化の正しい手順（新規契約の結び直し／マイルストーン払い。メッセージのみでの継続はガイドライン違反リスク）を`gig-work-kit`⑦に反映済み。
