@@ -1,20 +1,21 @@
-# 許可リスト方式：デフォルトで全部無視し、スキル運用に必要なファイルだけ追跡する。
+# 許可リスト方式：デフォルトで全部無視し、公開前提のファイルだけ追跡する。
+# 2026-09-12: .claude/** の全許可はリスクが高いと判断し、.claude/skills/** のみに縮小。
 # 転職活動の個人情報（02_面接対策、応募企業一覧、職務経歴書、LINE報告 等）や
-# knowledge/（ユーザー固有情報）はクラウド実行に含めないため、意図的に対象外にしている。
+# knowledge/ 配下のユーザー固有情報はクラウド実行に含めないため、意図的に対象外にしている。
 
 *
 
 !.gitignore
 !.claude/
-!.claude/**
+!.claude/skills/
+!.claude/skills/**
+!.githooks/
+!.githooks/**
 !スキル活用一覧.xlsx
 
-# gig-work-kitの自律リサーチ蓄積（クラウドルーティンが読み書きする）。
+# gig-work-kitの自律リサーチ蓄積（匿名化済み・公開前提の一般知見のみ）。
 # knowledge/配下の他のファイル（user-profile.md, lessons-learned.md, inbox/等）は
 # ユーザー固有情報のため引き続き除外する。
 !knowledge/
 knowledge/*
 !knowledge/gig-work-research.md
-
-# セッション固有のランタイム状態（コミット対象外）
-.claude/scheduled_tasks.lock
