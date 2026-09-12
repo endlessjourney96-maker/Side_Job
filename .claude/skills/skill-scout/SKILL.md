@@ -1,6 +1,6 @@
 ---
 name: skill-scout
-description: 日々の作業の中から「これは汎用スキル化できそう」というパターンを見つけて記録し、ネット上のClaude Codeスキル公開事例も収集して、スキル化のバックログ(backlog.md)に貯めていく。「これスキル化できそう」と気づいたときや、スキルの棚卸し・新規提案をしたいときに使う。また「いつものルーティーンお願い」「ルーティーンやって」と言われたら、調査・分析・ドラフト作成・レビューの一連の定期棚卸しフローを実行する（毎日1回、scheduleで自動実行もされる）。
+description: 日々の作業の中から「これは汎用スキル化できそう」というパターンを見つけて記録し、ネット上のClaude Codeスキル公開事例も収集して、スキル化のバックログ(backlog.md)に貯めていく。「これスキル化できそう」と気づいたときや、スキルの棚卸し・新規提案をしたいときに使う。また「いつものルーティーンお願い」「ルーティーンやって」と言われたら、調査・分析・ドラフト作成・レビューの一連の定期棚卸しフローを実行する（毎日1回、scheduleで自動実行もされる）。ChatGPTやNotebookLMから`knowledge/inbox/`配下に渡された知見の振り分け処理もここで扱う。
 ---
 
 # スキル化考案チーム
@@ -46,6 +46,7 @@ Web検索で「転職活動」「note・コンテンツ制作」「個人の業�
 - `categories.md`の「未導入・検討中」に反映する
 - `スキル活用一覧.xlsx`（プロジェクト直下）の「スキル一覧」シートに、新規候補を行として追加する（列：カテゴリ／スキル名／概要／活用シーン／おすすめ度(1-5)／種別(自動化・効率化)／ステータス／出典備考）。既存行の情報が古ければ更新する
 - `knowledge/inbox/chatgpt/` 配下に未処理（frontmatterやステータス行が「処理済み」になっていない）のMarkdownファイルがあれば、下記「ChatGPT Knowledge Inboxの処理」に従って振り分ける
+- `knowledge/inbox/notebooklm/` 配下に未処理のMarkdownファイルがあれば、下記「NotebookLM Knowledge Inboxの処理」に従って振り分ける
 
 ### ChatGPT Knowledge Inboxの処理
 
@@ -61,6 +62,67 @@ Web検索で「転職活動」「note・コンテンツ制作」「個人の業�
 8. 処理が終わったら、inboxファイル冒頭に「処理ステータス: 処理済み（→ 振り分け先を記載）」を追記する（同じファイルを二重に処理しないため）
 
 **重要な分離原則**：ユーザー固有情報と汎用Skillを混在させない。迷ったら「他の人が読んでも意味が通るか」で判断する（通れば汎用Skill、通らなければuser-profile）。
+
+### ChatGPTとの3つの情報経路（2026-09-13確定）
+
+ChatGPTとの間には目的の違う3つの経路がある。混同しないこと。
+
+| 経路 | 方向 | 中身 | Public/Private |
+|---|---|---|---|
+| `knowledge/inbox/chatgpt/YYYY-MM-DD.md` | ChatGPT → Claude Code | 方針・市場知見・Skill改善案・次の検証事項 | Private |
+| `knowledge/outbox/chatgpt/YYYY-MM-DD.md` | Claude Code → ChatGPT | その日Claude Code側で起きた全体状況・意思決定・変更点（差分型） | Private |
+| `knowledge/a3-execution-learnings.md` | A-3班(gig-work-kit) → ChatGPT | 実案件から得た再利用可能・匿名化済みの実行知見 | **Public**（Side_Job repoで追跡） |
+
+### Outbox（Claude Code → ChatGPT）の作り方
+
+**タイミング**：その日の作業終了時（目安22〜23時）。skill-scoutの朝7時ルーティンと時間帯が重ならないようにする（「前日まとめ」か「当日開始時点」かが曖昧になるのを避けるため）。
+
+**差分型にする**：毎回全情報を再要約しない。前日のoutboxとの差分（今日新しく起きたことだけ）を書く。以下の6項目フォーマットを使う：
+
+```markdown
+# Claude Code → ChatGPT Daily Handoff
+date: YYYY-MM-DD
+
+## 1. 今日変わったこと
+- 新規Skill / Agent変更 / 新規ツール / ワークフロー変更
+
+## 2. 実行結果
+- 成功 / 失敗 / 実測時間 / 品質上の問題
+
+## 3. 新しく得た知見
+- 市場 / 顧客 / 自動化 / QA
+
+## 4. PM判断・方針変更
+- 優先順位変更 / やめたこと / 新しく始めたこと
+
+## 5. ChatGPTに共有・相談したいこと
+- 市場調査してほしい / 別視点で評価してほしい / Skill設計をレビューしてほしい
+
+## 6. Public / Private
+- Public化したもの / Privateのまま保持するもの
+```
+
+何も特筆すべき変化がなかった日は、無理に作らなくてよい（空のoutboxは意味がない）。
+
+**運用方法（2026-09-13時点）**：完全自動連携はまだしない。実案件がまだ少ないため、「Claude Codeが差分Markdownを生成 → 必要な日だけユーザーが手動でChatGPTに貼る → ChatGPTの回答を`inbox/chatgpt/`に貼ってもらう」で十分。案件数が増えて貼り付け自体が負担になった段階で自動化を検討する。
+
+### NotebookLM Knowledge Inboxの処理
+
+役割分担：**NotebookLM＝大量の資料を読み込んで要約する係、Claude Code＝その要約を受け取って判断・実行する係**。PDF・記事・動画などの一次資料を大量に読ませるのはNotebookLM側で行ってもらい、そこで生成した要約・Q&A・Audio Overviewの書き起こし等を `knowledge/inbox/notebooklm/YYYY-MM-DD.md` として都度渡してもらう。
+
+処理の流れはChatGPT Inboxとほぼ同じだが、NotebookLM由来は「外部の一次情報の要約」という性質が強いため、次の点を意識する：
+
+1. 既存Skill（`job-hunt-kit`, `research-kit`, `note-*` 等）に統合できる内容か確認する
+2. 重複するSkill候補が`backlog.md`に無いか確認する
+3. **ユーザー固有の事実**は `knowledge/user-profile.md` に書く（NotebookLM由来では出現頻度は低いはず）
+4. **誰でも使える型・判断ルール・業界知識**は該当するSKILL.mdに追記するか、`backlog.md`に新規Skill候補として登録する
+5. **note記事のネタになりそうな情報**（業界動向、統計、トレンド）は、要点を保持したまま`research-kit`や`note-research`が使える形で整理し、記事化自体は`note-boss`チームに委ねる
+6. **失敗事例・注意点**は `knowledge/lessons-learned.md` に追記する
+7. 新規Skill候補は `スキル活用一覧.xlsx` にも行を追加する
+8. 既存の知見と矛盾する内容が来た場合は新しい情報を優先し、古い情報はdeprecatedとして残す
+9. 処理が終わったら、inboxファイル冒頭に「処理ステータス: 処理済み（→ 振り分け先を記載）」を追記する
+
+**注意**：`knowledge/inbox/`配下はPublicリポジトリの`.gitignore`許可リストに含まれていない（デフォルトで除外）。NotebookLMに読み込ませる資料や出力に、転職活動・実案件など公開したくない情報が混ざっている可能性があるため、意図的にこのままにする。
 
 **Step 3: 作成（ドラフトまで）**
 - `backlog.md`で★（有望）がついている候補、または3回以上使い回されている作業パターンについて、`pm-ai-kit`と同じ`用途/やり方/プロンプト/ポイント`構成でSKILL.mdドラフトを作る

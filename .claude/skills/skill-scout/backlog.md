@@ -141,3 +141,12 @@ ChatGPT提案「案件入口駅＝ChatGPT（探索・一次評価）／制作・
 ## 2026-09-13（gig-work-research 8回目、ローカル`/loop`）
 
 副業の確定申告基準（副業所得20万円超で必須、住民税は別途申告要）を`gig-work-kit`③に、ココナラのトークルーム利用ルール（取引目的外利用・外部公開禁止、送信取り消し不可）を⑥に反映済み。
+
+## 2026-09-13（ChatGPT → Claude Codeの情報経路を3本化、outbox新設）
+
+ユーザーから「ChatGPT側に、Gitで共有できていない情報を共有したい」という依頼を受け、`knowledge/outbox/chatgpt/2026-09-13.md`（初回・全量サマリー版）を作成。ChatGPT側から経路設計への承認と、運用改善の詳細フィードバックが返ってきた（`knowledge/inbox/chatgpt/2026-09-13_2.md`）。
+
+- **経路を3本に整理**：`inbox/chatgpt/`（ChatGPT→Claude Code、方針・市場知見）／`outbox/chatgpt/`（Claude Code→ChatGPT、差分型6項目フォーマット、22-23時想定）／`a3-execution-learnings.md`（A-3→ChatGPT、Public公開の実行知見）。詳細は`skill-scout/SKILL.md`「ChatGPTとの3つの情報経路」参照
+- **gig-work-kitへ反映**：Exception Rate（例外率）を優先判断軸に追加（③）、Creation より Transformation優先の具体例リスト（①）、Common Core構想（Input Contract→...→Abstracted Learning、実案件が増えたら移行する将来設計として明記）
+- **user-profile.mdへ反映**：AIチーム役割分担を5層（ChatGPT/Claude Code/Codex/A-3 subagents/NotebookLM）に更新
+- ステータス：運用ルール確定・反映済み
