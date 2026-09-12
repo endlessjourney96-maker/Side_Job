@@ -8,3 +8,6 @@
 !.claude/
 !.claude/**
 !スキル活用一覧.xlsx
+
+# セッション固有のランタイム状態（コミット対象外）
+.claude/scheduled_tasks.lock

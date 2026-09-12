@@ -101,3 +101,20 @@
 - **[gig-work-kit]** 新規スキル（→ `.claude/skills/gig-work-kit`）。既存の`pm-ai-kit`/`research-kit`/`job-hunt-kit`をそのまま納品物作成のエンジンとして再利用する設計
 - 収益記録は`spot-consulting/収益トラッカー.md`の「経路」列を共用（新しいトラッカーは作らず一元管理）
 - 注意点：note(スポット相談導線)・アフィリエイト・転職活動と並行する4本目の施策になるため、まず1案件を試験受注して時間対効果を検証してから広げる方針をスキル内に明記
+- 2026-09-12、3時間おきの自律リサーチ（ローカル`/loop`、ジョブID`8f44f2b9`、`knowledge/gig-work-research.md`に蓄積）を開始。1回目の知見を`gig-work-kit`SKILL.mdに反映済み（出品メニューの絞り方・応募数の目安・AIっぽさ対策チェックリスト）
+- 2回目（同日）：クラウドワークスの危険案件の見分け方（外部ツール誘導・極端な低単価・個人情報要求・評価0〜5件の依頼者等）を`gig-work-kit`①案件の適性判定の前段に「危険信号チェック」として追加反映済み
+- 3回目（同日）：パワポ提案書の型（背景・課題→解決策→効果→実行計画、結論先出し、配色4色以内）と、AIっぽさの原因を語尾/接続詞/主語/抽象度/構成の5要素に整理した具体的リライト技術を`gig-work-kit`に反映済み
+
+## 2026-09-12（ChatGPT側「副業自動化PM」フレームワークとの統合）
+
+`knowledge/inbox/chatgpt/2026-09-12.md`（ChatGPTが並行して検討していた副業自動化のPMフレームワーク）を処理。
+
+**`gig-work-kit`へ統合済み**：Job Scoutスコアリング（Revenue/Automation/Reuse/Proof/Fit/Expansion 6軸30点＋Competition Penalty＋Hard Gate）、共通業務Workflow（DISCOVER→...→PACKAGE）、対象外の明確化（コーディング講師業除外、低期待値案件の除外条件）、共通QAルール、Learning Loop（correction→reason→reusable_rule→skill_update）、経済性評価式（Expected Profit / Skill Investment Value）
+
+**既存スキルでカバー済み（新規スキル化は不要）**：`Career_Application_Agent`構想→[[job-hunt-kit]]で概ねカバー（転職支援を副業として売るサービス化は将来検討）、`Meeting_Followup_Agent`構想→[[pm-ai-kit]]＋`gig-work-kit`⑤に統合、`Research_to_Report`構想→[[research-kit]]でカバー
+
+**新規スキル候補（未着手、優先度検討）**
+- **[Web_Writer_Agent]** IT/DX/AI/キャリア等の専門テーマで、外部クライアント向けに継続的な有料記事執筆を代行するサービス。既存`note-writer`は自分のnote用なので別物。Pipeline案：Brief Parser→Search Intent Analyst→Researcher→Outline Writer→Draft Writer→Fact Checker→Editor→Requirement Checker→Human Gate→Learn。目標：1記事5,000円以上、週2〜3本の継続案件化。ChatGPT側は優先度A評価
+- **[SNS_Weekly_Operator]** 他社・クライアントのSNS運用（Instagram/X/Threads等）を「市場調査→企画→制作→QA→分析→改善」の一連ワークフローとして代行するサービス。既存`note-promoter`は自分のnote宣伝用なので別物。ChatGPT側は優先度B評価（今回新たに有望と判断された）
+
+**価格の食い違い→解決済み（2026-09-12）**：`spot-consulting/出品文_議事録整理代行.md`の2,000円〜はユーザー確定で継続。ChatGPT側のHard Gate（単発粗利3,000円以上）に対する意図的な戦略的例外（実績ゼロ期のレビュー集め優先）として`gig-work-kit`②に明記済み
