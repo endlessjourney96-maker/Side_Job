@@ -150,3 +150,7 @@ ChatGPT提案「案件入口駅＝ChatGPT（探索・一次評価）／制作・
 - **gig-work-kitへ反映**：Exception Rate（例外率）を優先判断軸に追加（③）、Creation より Transformation優先の具体例リスト（①）、Common Core構想（Input Contract→...→Abstracted Learning、実案件が増えたら移行する将来設計として明記）
 - **user-profile.mdへ反映**：AIチーム役割分担を5層（ChatGPT/Claude Code/Codex/A-3 subagents/NotebookLM）に更新
 - ステータス：運用ルール確定・反映済み
+
+## 2026-09-13（gig-work-research 9回目、ローカル`/loop`）
+
+ココナラの本人確認要件（出品は不要だが振込申請には必須）を`gig-work-kit`⑦に、議事録代行のNDA基礎（対象範囲・期間の確認、CONFIDENTIAL明記の重要性）を⑥に反映済み。4テーマの基本知見は一通り出尽くした感触。実案件が入り次第、リサーチより`knowledge/a3-execution-learnings.md`への実績記録を優先する方針（前回提案通り）。
