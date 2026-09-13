@@ -170,3 +170,15 @@ ChatGPT提案「案件入口駅＝ChatGPT（探索・一次評価）／制作・
 ## 2026-09-14（gig-work-research 13回目、ローカル`/loop`）
 
 クラウドワークスは本名不要で表示名・ワーカーIDのみで契約完結できること（[[feedback_handle_name_anonymity]]と整合、ただし源泉徴収案件はマイナンバー提出が例外）と、AIスライド作成ツール（Gamma等）の比較情報を`gig-work-kit`④⑤に反映済み。
+
+## 2026-09-14（ChatGPT knowledge inbox：`knowledge/inbox/chatgpt/2026-09-14.md`）
+
+ユーザーの深掘り自己分析（Personality/Operating Profile）とPLAUD NotePin S購入の報告。ユーザー固有情報は`knowledge/user-profile.md`へ反映済み（根本的な価値観、コミュニティとの関わり方、言葉への関心、ASKUL求人、リクルートエージェント面接後アンケートの6項目フォーマット）。後者は汎用テンプレートとして`.claude/skills/job-hunt-kit`⑤にも反映済み。
+
+**新規スキル候補（未着手、ドラフト化はユーザー確認後）**
+- **[self-discovery-agent]** SNS・過去文章・履歴書・職務経歴・日記・AI会話履歴等を横断分析し、Self Discovery／Career Translation／Self Operating Systemを出力する自己理解支援ツール。一般的なMBTI型診断との差別化は「質問票だけでなく実際の行動・文章データを使う」点。副業の新規事業候補としてChatGPT側が提案
+- **[real-world-to-knowledge]** PLAUD NotePin S（音声入力デバイス）→文字起こし→ChatGPT Knowledge Inbox→レビュー→Claude CodeでSkill/Rule/Template化、という「現実世界の発言を自動でナレッジ化する」パイプライン構想。Highlight機能を「人間が重要と感じた箇所のラベル」として優先処理に使うアイデアつき
+
+**保留（今は実施しない）**：ChatGPT側からuser-profile.mdを`knowledge/user-profile/`配下に`personality.md`/`values.md`/`decision_patterns.md`/`motivation.md`/`risks.md`/`ai_interaction_policy.md`へ分割する提案があったが、現時点では単一ファイルのまま運用を継続する判断（理由：分割による恩恵より、既存の相互参照・[[リンク]]の張り替えコストが今は上回る）。内容量がさらに増えて参照しづらくなったら再検討する。
+
+**運用ルール確認**：健康・家族などセンシティブ情報は必要最小限・目的限定で扱う、という方針をChatGPT側から再確認された。既存の匿名化方針（[[feedback_handle_name_anonymity]]）と一致するため、追加対応は不要と判断。
