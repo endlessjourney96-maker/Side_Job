@@ -6,7 +6,14 @@ git diff --cached (ステージされた追加行) を対象に、公開して�
 
 正規表現で機械的に拾えるのは一部だけ。企業名・顧客名・実案件の中身は
 このスクリプトでは検出できないため、必ず人間 (またはルーティンの目視レビュー) と併用する。
+
+2026-10-29 追加：
+- コミットの作者欄（住所・名前）も見る。住所は noreply の物だけ通す
+- 伏せる語の一覧（社名・本名など）を、公開しない場所のファイルから読んで見る。
+  一覧の場所は環境変数 HIDE_TERMS_FILE、無ければ ~/.config/git/hide-terms.txt。
+  一覧が無い環境（クラウドの実行など）では、この点検だけ飛ばす。語そのものは画面に出さない
 """
+import os
 import re
 import subprocess
 import sys
@@ -31,7 +38,7 @@ DANGEROUS_FILENAMES = re.compile(r"(^|/)(\.env(\..*)?|.*\.pem|.*\.key|id_rsa.*)$
 
 def get_staged_diff() -> str:
     result = subprocess.run(
-        ["git", "diff", "--cached", "-U0"],
+        ["git", "-c", "core.quotepath=false", "diff", "--cached", "-U0"],
         capture_output=True, encoding="utf-8", errors="replace", check=True,
     )
     return result.stdout or ""
@@ -39,30 +46,67 @@ def get_staged_diff() -> str:
 
 def get_staged_files() -> list[str]:
     result = subprocess.run(
-        ["git", "diff", "--cached", "--name-only"],
+        ["git", "-c", "core.quotepath=false", "diff", "--cached", "--name-only"],
         capture_output=True, encoding="utf-8", errors="replace", check=True,
     )
     return [f for f in (result.stdout or "").splitlines() if f]
 
 
+def load_hide_terms() -> list[str] | None:
+    path = os.environ.get("HIDE_TERMS_FILE") or os.path.expanduser("~/.config/git/hide-terms.txt")
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding="utf-8") as f:
+        return [t.strip().lower() for t in f if t.strip() and not t.startswith("#")]
+
+
+def get_author() -> tuple[str, str]:
+    ident = subprocess.run(
+        ["git", "var", "GIT_AUTHOR_IDENT"],
+        capture_output=True, encoding="utf-8", errors="replace", check=True,
+    ).stdout
+    m = re.match(r"(.*) <(.*)>", ident)
+    return (m.group(1), m.group(2)) if m else ("", "")
+
+
 def main() -> int:
     findings = []
+    terms = load_hide_terms()
+
+    name, email = get_author()
+    if "noreply" not in email.lower():
+        findings.append("[作者の住所] GitHub の「住所を出さない住所」（noreply）になっていない。git config user.email を直す")
+    if terms and any(t in name.lower() or t in email.lower() for t in terms):
+        findings.append("[作者の名前] 伏せる語を含む。git config user.name を直す")
 
     for f in get_staged_files():
         if DANGEROUS_FILENAMES.search(f):
             findings.append(f"[危険なファイル名] {f}")
+        if terms and any(t in f.lower() for t in terms):
+            findings.append(f"[伏せる語] ファイル名 {f}")
 
     diff = get_staged_diff()
-    added_lines = [
-        line[1:] for line in diff.splitlines()
-        if line.startswith("+") and not line.startswith("+++")
-    ]
+    added = []  # (ファイル名, 追加された行)
+    current = ""
+    for line in diff.splitlines():
+        if line.startswith("+++ "):
+            current = line[6:] if line.startswith("+++ b/") else line[4:]
+        elif line.startswith("+"):
+            added.append((current, line[1:]))
+    added_lines = [line for _, line in added]
 
     for label, pattern in PATTERNS.items():
         for line in added_lines:
             m = pattern.search(line)
             if m:
                 findings.append(f"[{label}] {m.group(0)[:40]}")
+
+    if terms:
+        for f, line in added:
+            if any(t in line.lower() for t in terms):
+                findings.append(f"[伏せる語] {f}（語は表示しない）")
+    else:
+        print("（伏せる語の一覧が無いので、語の点検は飛ばしました）")
 
     if findings:
         print("push前チェックで疑わしい内容が見つかりました。コミット・pushを中止してください:")
