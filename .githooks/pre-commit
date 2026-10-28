@@ -1,0 +1,6 @@
+#!/bin/sh
+# Public repoへの秘密情報混入を防ぐpre-commitフック。
+# 有効化: git config core.hooksPath .githooks
+
+python "$(git rev-parse --show-toplevel)/.claude/skills/skill-scout/scripts/check_secrets.py"
+exit $?
