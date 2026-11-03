@@ -455,3 +455,27 @@ note・コンテンツ制作
 ステータス：新規★候補なし。既出テーマの補強メモのみのため`categories.md`「未導入・検討中」への追記・`スキル活用一覧.xlsx`への新規行追加・既存スキルへの修正は見送り。
 
 **Step4レビュー**：`.claude/skills/`配下の実フォルダ一覧（19スキル）と`categories.md`の導入済み一覧を再確認。前回（2026-11-01）からの変更点なし。明らかな重複・放置スキルは見当たらず「要整理」対象は無し。
+
+## 2026-11-03（いつものルーティーン）
+
+実行前に、このクラウド実行環境のローカル`main`がHEAD detached状態で`origin/main`より3コミット遅れていたことに気づいた（原因は前回までと同様、クローン時の参照キャッシュの古さ）。作業ツリーに未コミットの変更は無かったため`git checkout main && git merge --ff-only origin/main`で整合済み（fast-forwardのみ、追加pushなし）。
+
+`knowledge/inbox/`（ChatGPT・NotebookLM由来）はこのクラウド実行環境には同期されておらず中身が無いため、Inbox処理は今回も未実施（ローカル環境で貯まっていれば次回ローカル実行時に処理される想定）。4カテゴリをWeb調査。
+
+**新規候補（★・ネタ帳とcategories.md/xlsxに反映。ドラフト化は見送り）**
+- **[Career-Ops]**（[github.com/santifer/career-ops](https://github.com/santifer/career-ops)、MIT、2026-11-03調査）：スペインのSantiago Fernández de Valderrama氏が自身の2026年転職活動（740件の求人評価・66件応募・12件面接・内定1件）を経て公開したOSS。Claude Codeのスキルファイルとして14モードを実装し、求人をA-F評価(10軸)・ATS最適化CV自動生成・求人URLのバッチ処理(122件並列の報告あり)・パイプライン一元トラッキングを行う。CLI非依存（Claude Code/Codex/OpenCode/Gemini CLI/Qwen/Copilotで動作、Claude Codeが最多ランタイムと説明）。既出の`squerne/open-career-skills`のevidence-miner（別著者・別アプローチ：過去実績の裏取り中心）とは異なり、求人評価とCV生成パイプラインという`job-hunt-kit`に無い粒度の工程
+  - 判断：有望度は高いが、出典記事間でGitHub star数が9.1K〜49K+と大きく矛盾しており（他の報告数値の信頼性も要注意）、CLI非依存で「Claude Code専用スキル」とは言い切れない点もあるため、即ドラフト化はせず`categories.md`「未導入・検討中」に★候補として追記のみ。次回以降、リポジトリ本体を直接確認した上でA-Fスコアリング・ATS最適化CV生成あたりを`job-hunt-kit`への機能追加候補として検討する
+
+**ネタ帳（今回の調査分・補足のみ）**
+
+チームの業務効率／AIコンサル方向
+- 株式会社クラウドワークスコンサルティングが、Anthropicのグローバルパートナープログラム「Claude Partner Network」の認定パートナーに選定（2026-08-27発表）。Anthropicはこのネットワークに2026年内で初期1億ドルを投資すると表明し、4段階のティア構成（Registered/Select/Preferred/Global Premier）があるとされる。クラウドワークス自体は`gig-work-kit`で既に受託先プラットフォームとして追跡中だが、その関連会社がAI導入コンサルの認定パートナーになったという事実は、`dx-consulting-framework`/`spot-consulting-kit`が将来目指す「AIコンサルタント就業」方向の市場が本格化している裏付けとして参考メモに留める（★ではない、既存スキルへの追記は見送り）
+- Agent Skills仕様がLinux Foundation傘下のAgentic AI Foundation(AAIF)に寄贈されオープン標準化（2026-10-22）：ガバナンス面のニュースでスキル内容そのものではないため、参考メモのみ
+
+転職活動／note・コンテンツ制作／個人の業務効率
+- 上記Career-Ops以外では新規ヒットなし。上位結果はこれまでに記録済みの記事（libecity求人分析ガイド、sejuku note自動化手順等）の再ヒットが中心
+- Anthropic公式の新規スキル・プラグインリリースも2026年11月時点で確認できず（直近の公式動向は上記AAIF寄贈が最新）
+
+ステータス：新規★候補1件（Career-Ops）を`categories.md`・`スキル活用一覧.xlsx`に反映。ドラフト作成は見送り（出典数値の信頼性要確認のため）。
+
+**Step4レビュー**：`.claude/skills/`配下の実フォルダ一覧（19スキル）と`categories.md`の導入済み一覧を再確認。前回（2026-11-02）からの変更点なし。明らかな重複・放置スキルは見当たらず「要整理」対象は無し。

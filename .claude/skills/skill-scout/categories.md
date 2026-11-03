@@ -65,6 +65,7 @@
 詳細な出典URLは `backlog.md` のネタ帳セクション参照。★は特に有望と判断したもの。
 
 ### 転職活動
+- ★[Career-Ops](https://github.com/santifer/career-ops)（2026-11-03調査、MIT、CLI非依存）：14モードの求人検索コマンドセンター。求人をA-F評価(10軸)・ATS最適化CV自動生成・求人URLバッチ処理・パイプライン一元トラッキングという発想が`job-hunt-kit`（企業別面接対策・返信文中心）には無い粒度。ただし出典によりGitHub star数が9.1K〜49K+と大きく矛盾しており数値は鵜呑み厳禁。次回以降、求人評価・CV生成パイプラインの一部機能として`job-hunt-kit`への反映を検討
 - interview-coach-skill／The Claude Code Job Search OS：面接想定問答を「スコアリング」する発想、面接準備〜交渉までの工程拡張の参考
 - ResumeSkills：ATS(採用管理システム)通過視点の素材
 - LinkedIn MCPサーバー：求人・企業情報の自動収集（⚠️LinkedIn利用規約との兼ね合いを要確認。導入するなら本人アカウントでの手動相当の使い方に留めるのが無難）
