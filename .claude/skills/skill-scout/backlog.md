@@ -524,3 +524,27 @@ note・コンテンツ制作
 ステータス：新規★候補なし。`claudskills.com`（外部SKILL.mdレジストリ）の存在のみ記録し、内容未検証のため`categories.md`「未導入・検討中」への追記・`スキル活用一覧.xlsx`への新規行追加は見送り。
 
 **Step4レビュー**：`.claude/skills/`配下の実フォルダ一覧（19スキル）と`categories.md`の導入済み一覧を再確認。前回（2026-11-04）からの変更点なし。明らかな重複・放置スキルは見当たらず「要整理」対象は無し。
+
+## 2026-11-06（いつものルーティーン）
+
+実行前に、このクラウド実行環境のローカル`main`がHEAD detached状態で`origin/main`より6コミット遅れていたことに気づいた（原因は前回までと同様、クローン時の参照キャッシュの古さ）。作業ツリーに未コミットの変更は無かったため`git checkout main && git merge --ff-only origin/main`で整合済み（fast-forwardのみ、追加pushなし）。
+
+`knowledge/inbox/`（ChatGPT・NotebookLM由来）はこのクラウド実行環境には同期されておらず中身が無いため、Inbox処理は今回も未実施（ローカル環境で貯まっていれば次回ローカル実行時に処理される想定）。4カテゴリをWeb調査。
+
+**新規ドラフト作成：[job-posting-fit-score]**
+- [Career-Ops](https://github.com/santifer/career-ops)（2026-11-03から4日連続で★候補として保留していた件）について、今回GitHub本体を直接WebFetchで確認した。結果：**80.7k★・MIT license・3,935 commits**。アグリゲーターサイト（thepromptshelf.dev・skillrank.it.com等）の星数が9.1K→11.9K→42.8K→54,954→73,000+→80.7Kと時系列で大きく揺れていた件は、情報源の信頼性問題ではなく「公開から急成長中のリポジトリを異なる時点でスナップショットした結果」と判断できた（MIT・実体のあるリポジトリであることは直接確認で確定）
+  - 判断：A-F評価(10軸)の求人票スコアリング・ATS最適化CV生成という`job-hunt-kit`/`company-scoring-sheet`どちらにも無い粒度の発想を、コード移植ではなく本プロジェクト方式（プロンプト＋テンプレ）で再設計し、`skill-scout/drafts/job-posting-fit-score/SKILL.md`としてドラフト化した
+  - 既存ドラフト`company-scoring-sheet`（企業単位の比較）とは対象粒度が違う（本ドラフトは求人票1件単位）ため、別ドラフトとして独立させた
+  - Career-Ops本体の求人サイトスクレイピング・URLバッチ処理機能は、利用規約・個人情報保護の観点から意図的に不採用（手動貼り付け前提を維持）と明記済み
+  - `categories.md`「未導入・検討中」とスキル活用一覧.xlsx（既存Career-Ops行のステータス更新＋新規行1件追加）に反映済み
+  - ステータス：ドラフト作成済み（→ `skill-scout/drafts/job-posting-fit-score`）。本採用判断はユーザー確認後
+
+**ネタ帳（今回の調査分・補足のみ）**
+
+転職活動／note・コンテンツ制作／個人の業務効率／チームの業務効率
+- 上記Career-Ops関連の深掘り以外では新規ヒットなし。上位結果はこれまでに記録済みの記事（libecity求人分析ガイド、sejuku note自動化手順、digirise.ai/uravation.comのセミナー事例等）の再ヒットが中心
+- Anthropic公式の新規スキル・プラグインリリースも2026年11月時点で確認できず
+
+ステータス：新規★候補なし（Career-Opsは既存★候補のドラフト化が完了したのみ）。`categories.md`「未導入・検討中」はCareer-Ops行を更新、`スキル活用一覧.xlsx`は既存1行更新＋新規1行追加。
+
+**Step4レビュー**：`.claude/skills/`配下の実フォルダ一覧（19スキル）と`categories.md`の導入済み一覧を再確認。前回（2026-11-05）からの変更点なし。明らかな重複・放置スキルは見当たらず「要整理」対象は無し。
