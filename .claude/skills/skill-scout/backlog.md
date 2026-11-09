@@ -588,3 +588,23 @@ note・コンテンツ制作
 ステータス：新規★候補なし。既出テーマの補強メモ・保留継続のみのため`categories.md`「未導入・検討中」への追記・`スキル活用一覧.xlsx`への新規行追加は見送り。
 
 **Step4レビュー**：`.claude/skills/`配下の実フォルダ一覧（19スキル）と`categories.md`の導入済み一覧を再確認。前回（2026-11-07）からの変更点なし。明らかな重複・放置スキルは見当たらず「要整理」対象は無し。
+
+## 2026-11-09（いつものルーティーン）
+
+このクラウド実行環境のローカル`main`参照はHEAD detached状態で`origin/main`より1コミット遅れていた（原因は前回までと同様、クローン時の参照キャッシュの古さ）。作業ツリーに未コミットの変更は無かったため`git checkout -B main origin/main`で整合済み（fast-forwardのみ、追加pushなし）。
+
+`knowledge/inbox/`（ChatGPT・NotebookLM由来）はこのクラウド実行環境には同期されておらず中身が無いため、Inbox処理は今回も未実施（ローカル環境で貯まっていれば次回ローカル実行時に処理される想定）。4カテゴリをWeb調査。
+
+**ネタ帳（今回の調査分・補足のみ）**
+
+チームの業務効率
+- [Classmethodのケーススタディ](https://www.casestudies.com/company/claude/case-study/43c-classmethod-accelerates-development-velocity-with-claude-code)（Anthropic公式casestudies.com掲載）：開発工程へのClaude Code組み込みで生産性10倍を報告。開発効率化が主眼でチームの業務自動化（議事録・経費精算等）とは毛色が違う上、既出のMoney Forward（2026-11-07既出）・0120.co.jp等と同系統のベンダー寄りの定量効果メモ。新規候補としては追加しない
+
+転職活動／note・コンテンツ制作／個人の業務効率
+- 上記以外では新規ヒットなし。上位結果はこれまでに記録済みの記事（libecity求人分析ガイド・子育てと転職活動両立記事、sejuku note自動化手順、Career-Ops関連のthepromptshelf.dev記事等）の再ヒットが中心
+- Career-Ops（`job-posting-fit-score`としてドラフト化済み、2026-11-06）に関する新情報も無し
+- Anthropic公式の新規スキル・プラグインリリースも2026年11月時点で確認できず（直近の公式動向は2026-10-22記録済みのAAIF寄贈が最新）
+
+ステータス：新規★候補なし。既出テーマの補強メモのみのため`categories.md`「未導入・検討中」への追記・`スキル活用一覧.xlsx`への新規行追加は見送り。
+
+**Step4レビュー**：`.claude/skills/`配下の実フォルダ一覧（19スキル）と`categories.md`の導入済み一覧を再確認。前回（2026-11-08）からの変更点なし。明らかな重複・放置スキルは見当たらず「要整理」対象は無し。
