@@ -608,3 +608,26 @@ note・コンテンツ制作
 ステータス：新規★候補なし。既出テーマの補強メモのみのため`categories.md`「未導入・検討中」への追記・`スキル活用一覧.xlsx`への新規行追加は見送り。
 
 **Step4レビュー**：`.claude/skills/`配下の実フォルダ一覧（19スキル）と`categories.md`の導入済み一覧を再確認。前回（2026-11-08）からの変更点なし。明らかな重複・放置スキルは見当たらず「要整理」対象は無し。
+
+## 2026-11-10（いつものルーティーン）
+
+このクラウド実行環境のローカル`main`参照は`origin/main`より1コミット遅れていた（原因は前回までと同様、クローン時の参照キャッシュの古さ）。作業ツリーに未コミットの変更は無かったため`git checkout -B main origin/main`で整合済み（fast-forwardのみ、追加pushなし）。
+
+`knowledge/inbox/`（ChatGPT・NotebookLM由来）はこのクラウド実行環境には同期されておらず中身が無いため、Inbox処理は今回も未実施（ローカル環境で貯まっていれば次回ローカル実行時に処理される想定）。4カテゴリをWeb調査。
+
+**ネタ帳（今回の調査分・補足のみ）**
+
+転職活動
+- Career-Ops関連の比較記事（thepromptshelf.dev「Career-Ops vs LazyApply vs JobScan」）がヒット。LazyApply（大量自動応募SaaS）・JobScan（ATS最適化SaaS）と比べ、Career-Opsはローカル実行でカスタマイズ性が高い点が特徴とされるが、Career-Ops自体は既に`job-posting-fit-score`としてドラフト化済み（2026-11-06）であり、LazyApply/JobScanはSaaS製品でClaude Codeスキルではないため新規候補としては追加しない
+- 上記以外は既出記事（libecity求人分析ガイド、Career-Ops関連記事群）の再ヒットのみ
+
+note・コンテンツ制作
+- [note/Qiita/Zenn 3媒体対応スキル設計記事](https://zenn.dev/aiandao/articles/three-repo-blog-skill-design-20260506)、[Obsidian Web Clipper×Claude Codeでの技術記事自動整理](https://dev.classmethod.jp/articles/obsidian-claude-clip/)がヒットしたが、いずれもこのクラウド実行環境のネットワーク許可リスト外（`zenn.dev`・`dev.classmethod.jp`）でWebFetch不可のため本文未検証。前回（2026-11-05/08）の`claudskills.com`と同様の制約。内容未確認のため`categories.md`への反映は見送り、タイトルのみ記録
+- `claudskills.com`のnote記事作成スキルは今回も再ヒットのみで新情報なし
+
+個人の業務効率／チームの業務効率
+- 新規ヒットなし。上位結果は既出のdigirise.ai・fyve.co.jp・0120.co.jp・Money Forward/Classmethodケーススタディ等の再ヒットが中心。Anthropic公式の新規スキル・プラグインリリースも2026年11月時点で確認できず
+
+ステータス：新規★候補なし。ネットワーク制約で本文未検証の記事2件（zenn.dev、dev.classmethod.jp）をタイトルのみ記録。`categories.md`「未導入・検討中」への追記・`スキル活用一覧.xlsx`への新規行追加は見送り。
+
+**Step4レビュー**：`.claude/skills/`配下の実フォルダ一覧（19スキル）と`categories.md`の導入済み一覧を再確認。前回（2026-11-09）からの変更点なし。明らかな重複・放置スキルは見当たらず「要整理」対象は無し。
