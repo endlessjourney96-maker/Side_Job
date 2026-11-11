@@ -631,3 +631,31 @@ note・コンテンツ制作
 ステータス：新規★候補なし。ネットワーク制約で本文未検証の記事2件（zenn.dev、dev.classmethod.jp）をタイトルのみ記録。`categories.md`「未導入・検討中」への追記・`スキル活用一覧.xlsx`への新規行追加は見送り。
 
 **Step4レビュー**：`.claude/skills/`配下の実フォルダ一覧（19スキル）と`categories.md`の導入済み一覧を再確認。前回（2026-11-09）からの変更点なし。明らかな重複・放置スキルは見当たらず「要整理」対象は無し。
+
+## 2026-11-11（いつものルーティーン）
+
+このクラウド実行環境のローカル`main`参照はHEAD detached状態で`origin/main`より1コミット遅れていた（原因は前回までと同様、クローン時の参照キャッシュの古さ）。作業ツリーに未コミットの変更は無かったため`git checkout -B main origin/main`で整合済み（fast-forwardのみ、追加pushなし）。
+
+`knowledge/inbox/`（ChatGPT・NotebookLM由来）はこのクラウド実行環境には同期されておらず中身が無いため、Inbox処理は今回も未実施（ローカル環境で貯まっていれば次回ローカル実行時に処理される想定）。4カテゴリをWeb調査（カテゴリごとに並行調査エージェントを起動）。
+
+**今回の発見（★候補ではないが既存ドラフトへ注記反映）**
+- **[him0/freee-mcp]**：freee会計APIと接続するMCPサーバー。`invoice-tax-prep`ドラフト（2026-10-22作成）が「本採用に向けた確認事項」で挙げていた「freee/マネーフォワード連携まで踏み込むか」という論点に対する具体的な実装候補だが、出典間でライセンス表記が一致しない（Apache-2.0とする出典とlicense not foundとする出典がある）ため、採用時は要再確認の注記として`skill-scout/drafts/invoice-tax-prep/SKILL.md`に追記のみ実施。ドラフトの採否判断自体は変更せず
+
+**ネタ帳（今回の調査分・補足のみ）**
+
+転職活動
+- 新規ヒットなし。Career-Ops関連記事（thepromptshelf.dev比較記事・walkthrough記事、x-cmd.com）の再ヒットのみで、モード数「12」star数「44,554〜47,000+」という既出とまた異なる数字が出ているが、既存の判断（成長中リポジトリのスナップショット差）を変える新情報ではない。英語圏のcommunity skill registry（skills.lc, skills.sh, claudeskills.info等）に"LinkedIn Job Resume Optimizer"等の個人投稿スキルもあったが、既出のLinkedIn MCPサーバーと同系統（規約リスク既知）で新規性なし
+
+note・コンテンツ制作
+- [claudskills.com note-article](https://claudskills.com/skills/note-article/)（2026-11-05から本文未検証だった件）の詳細が今回判明：note-mcp＋Codex MCPでサムネイル生成込みの自動投稿まで行う構成。認証情報の扱い・ライセンスは依然未検証のため★候補にはせず記録のみ
+- [skills.sh note-automation](https://www.skills.sh/anyoneanderson/note-md-publisher/note-automation)：セキュリティ監査で"medium risk"と明記されたnote自動投稿スキル。既存の「note自動投稿は規約上要注意」という判断を補強する反面教師的事例として参考メモ
+
+個人の業務効率
+- 上記`him0/freee-mcp`以外では新規性のある候補なし。`harperreed/office-admin-claude`等は既出のExecutive Assistant Persona系と機能重複
+
+チームの業務効率
+- [SuperIntern MCPによる会議アクションアイテム→Linear Issue自動化](https://super-intern.com/en/blog/2026-superintern-mcp-linear-action-items)、[Classmethod「Claude CodeをPMアシスタントにする」](https://dev.classmethod.jp/en/articles/claude-code-pm-inbox-skills-pattern/)：いずれも`pm-ai-kit`の設計参考程度で、独立スキル化の必要性は薄いと判断
+
+ステータス：新規★候補なし。`invoice-tax-prep`ドラフトへ実装参考の注記1件を追加したのみ。`categories.md`「未導入・検討中」への追記・`スキル活用一覧.xlsx`への新規行追加は見送り（ドラフトの軽微な注記のみで、xlsx反映対象となる新規スキル候補ではないため）。
+
+**Step4レビュー**：`.claude/skills/`配下の実フォルダ一覧（19スキル）と`categories.md`の導入済み一覧を再確認。前回（2026-11-10）からの変更点なし。明らかな重複・放置スキルは見当たらず「要整理」対象は無し。
