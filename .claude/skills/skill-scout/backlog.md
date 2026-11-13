@@ -659,3 +659,27 @@ note・コンテンツ制作
 ステータス：新規★候補なし。`invoice-tax-prep`ドラフトへ実装参考の注記1件を追加したのみ。`categories.md`「未導入・検討中」への追記・`スキル活用一覧.xlsx`への新規行追加は見送り（ドラフトの軽微な注記のみで、xlsx反映対象となる新規スキル候補ではないため）。
 
 **Step4レビュー**：`.claude/skills/`配下の実フォルダ一覧（19スキル）と`categories.md`の導入済み一覧を再確認。前回（2026-11-10）からの変更点なし。明らかな重複・放置スキルは見当たらず「要整理」対象は無し。
+
+## 2026-11-13（いつものルーティーン：前回11-11から2日空き）
+
+このクラウド実行環境のローカル`main`参照はHEAD detached状態だったが、`origin/main`とは完全一致（遅れなし）していたため`git checkout -B main origin/main`でブランチ参照のみ整合（fast-forward・追加pushなし）。
+
+`knowledge/inbox/`（ChatGPT・NotebookLM由来）はこのクラウド実行環境には同期されておらず中身が無いため、Inbox処理は今回も未実施（ローカル環境で貯まっていれば次回ローカル実行時に処理される想定）。4カテゴリをWeb調査（カテゴリごとに並行調査エージェントを起動）。
+
+**新規候補（ネタ帳に追加。★判断は保留）**
+
+転職活動
+- [proficientlyjobs/proficiently-claude-skills](https://github.com/proficientlyjobs/proficiently-claude-skills)（フリーランス個人公開、15スキル集）：レジュメ(PDF)アップロード→好み設定→職務経歴ヒアリングの`setup`スキルと、それに基づく`job-search`スキルが中心。既出`job-posting-fit-score`(Career-Ops由来)は求人票A-F評価＋ATS最適化CVが主眼だが、本リポジトリは「職務経歴インタビュー形式でのオンボーディング」という工程が特徴的で`company-analysis-full`の経歴整理と重なる部分もある
+  - 判断：出典間でstar数が64〜309と大きく不一致、複数サイトで最終更新が2026年3月時点と表示されており（Career-Opsのような継続成長中ではなく停滞気味の可能性）、ライセンスも未確認。即★候補にはせず、次回以降GitHub本体を直接確認してから判断する候補としてネタ帳に留める
+
+**ネタ帳（今回の調査分・補足のみ）**
+
+note・コンテンツ制作
+- [TacoSkill LAB「note-draft」](https://tacoskill-lab.duckdns.org/skill/note-draft--c4ee79ea)、[claudskills.com「note-article-generator」](https://claudskills.com/skills/note-article-generator/)、library.libecity.comの新規記事（2026-10-29付「記事づくりの好みをスキルに残す」工夫）：いずれもこのクラウド実行環境のネットワーク許可リスト外でWebFetch不可のため本文・ライセンス未検証。タイトルのみ記録し★候補化は見送り
+
+個人の業務効率／チームの業務効率
+- 新規性のある候補なし。個人の業務効率はclaudskills.com等のコミュニティレジストリに「personal-productivity」「daily-planning」系スキルが多数あったが既存`invoice-tax-prep`・Executive Assistant Persona系と機能重複。チームの業務効率は[Anthropicチーム自身の活用事例（公式）](https://claude.com/ja/resources/articles/how-anthropic-teams-use-claude-code)がヒットしたが、セキュリティ・データインフラ・プロダクトデザインチームのエンジニアリング業務向けで、本プロジェクトが想定する非エンジニア業務改善とは対象層がズレるため★候補にはせず
+
+ステータス：新規★候補なし（proficiently-claude-skillsは保留扱いでネタ帳のみ・categories.md/xlsxへの反映は見送り）。ドラフト作成なし。
+
+**Step4レビュー**：`.claude/skills/`配下の実フォルダ一覧（19スキル）と`categories.md`の導入済み一覧を再確認。前回（2026-11-11）からの変更点なし。明らかな重複・放置スキルは見当たらず「要整理」対象は無し。
